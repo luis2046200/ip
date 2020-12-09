@@ -5,7 +5,9 @@ read answer
 # if echo "$answer" | grep -iq "^y" ;then
 
 if [ "$answer" != "${answer#[Yy]}" ] ;then
-    ping -c10 -i3 192.168.1.1
+echo -n "Ingrese el ip: "
+read my_var
+    ping -c10 -i3 $my_var
 else
     clear
 fi
