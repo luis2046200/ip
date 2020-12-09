@@ -5,7 +5,9 @@ read answer
 clear
 #Buscador del ip local
 printf "Tu IP:"
-hostname -i | cut -d' ' -f1 
+ip -o route get to 8.8.8.8 | sed -n 's/.*src \([0-9.]\+\).*/\1/p'
+printf "Nombre de la terminal:"
+hostname -s | cut -d' ' -f1
 # if echo "$answer" | grep -iq "^y" ;then
 
 if [ "$answer" != "${answer#[Yy]}" ] ;then
